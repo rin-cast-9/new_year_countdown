@@ -16,4 +16,3 @@ function updateCountdown() {
     }
 }
 var timer = setInterval(updateCountdown, 1000);
-// Time until New Year: 113 d 14 h 29 m 59 s
