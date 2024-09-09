@@ -1,22 +1,19 @@
-const now = new Date();
-const nextYear = now.getFullYear() + 1;
-const newYear = new Date(`January 1, ${nextYear} 00:00:00`);
-
+var now = new Date();
+var nextYear = now.getFullYear() + 1;
+var newYear = new Date("January 1, ".concat(nextYear, " 00:00:00"));
 function updateCountdown() {
-    const now = new Date();
-    const timeUntilNewYear = newYear - now;
-
-    const seconds = Math.floor((timeUntilNewYear / 1000) % 60);
-    const minutes = Math.floor((timeUntilNewYear / 60000) % 60);
-    const hours = Math.floor((timeUntilNewYear / 3600000) % 24);
-    const days = Math.floor(timeUntilNewYear / 86400000);
-
-    process.stdout.write(`\rTime until New Year: ${days} d ${hours} h ${minutes} m ${seconds} s`);
-
+    var now = new Date();
+    var timeUntilNewYear = newYear.getTime() - now.getTime();
+    var seconds = Math.floor((timeUntilNewYear / 1000) % 60);
+    var minutes = Math.floor((timeUntilNewYear / 60000) % 60);
+    var hours = Math.floor((timeUntilNewYear / 3600000) % 24);
+    var days = Math.floor(timeUntilNewYear / 86400000);
+    process.stdout.write("\r".concat(' '.repeat(50), "\r"));
+    process.stdout.write("Time until New Year: ".concat(days, " d ").concat(hours, " h ").concat(minutes, " m ").concat(seconds, " s"));
     if (timeUntilNewYear <= 0) {
         clearInterval(timer);
-        console.log("\nHappy New Year!🎉");
+        console.log("\nHappy new Year!🎉");
     }
 }
-
-const timer = setInterval(updateCountdown, 1000);
+var timer = setInterval(updateCountdown, 1000);
+// Time until New Year: 113 d 14 h 29 m 59 s
